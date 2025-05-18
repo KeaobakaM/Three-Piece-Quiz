@@ -83,3 +83,42 @@ function showQuestion() {
     }
   }, 1000);
 }
+
+function updateTimer() {
+  timerElement.textContent = `Time: ${timeLeft}s`;
+}
+
+function resetState() {
+  clearInterval(timer);
+  nextBtn.classList.add("hidden");
+  while (optionsElement.firstChild) {
+    optionsElement.removeChild(optionsElement.firstChild);
+  }
+}
+
+function selectAnswer(selectedOption, correctAnswer) {
+  clearInterval(timer);
+  const options = document.querySelectorAll(".option-btn");
+  let isCorrect = false;
+
+  options.forEach((option) => {
+    if (option.textContent === correctAnswer) {
+      option.classList.add("correct");
+    }
+    if (
+      option.textContent === selectedOption &&
+      selectedOption !== correctAnswer
+    ) {
+      option.classList.add("wrong");
+    }
+    option.disabled = true;
+  });
+
+  if (selectedOption === correctAnswer) {
+    score++;
+    isCorrect = true;
+  }
+
+  scoreElement.textContent = `Score: ${score}`;
+  nextBtn.classList.remove("hidden");
+}
