@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #0f172a;
+}
+
+.header {
+  background: rgb(6, 150, 150);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+}
+
+h1 {
+  color: aliceblue;
+}
+
+h2 {
+  color: aliceblue;
+}
+
+p {
+  color: aliceblue;
+}
+
+label {
+  color: aliceblue;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+.admin-icon i {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 900px; /* Increased from 600px */
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.screen {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid cyan;
+  outline: none;
+}
+
+button {
+  background-color: rgb(6, 150, 150);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.35s ease-in-out;
+}
+
+button:hover {
+  opacity: 50%;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+}
+
+.option-btn {
+  padding: 10px;
+  color: #333;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.option-btn:hover {
+  background: #e0e0e0;
+}
+
+.option-btn.correct {
+  background: #4caf50;
+  color: white;
+}
+
+.option-btn.wrong {
+  background: #f44336;
+  color: white;
+}
+
+#progress-bar {
+  height: 10px;
+  background: #e0e0e0;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+#progress {
+  height: 100%;
+  background: #4caf50;
+  border-radius: 5px;
+  width: 0%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+}
+.admin-link {
+  display: block;
+  margin-top: 20px;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.admin-link:hover {
+  color: #333;
+  text-decoration: underline;
+}
+#question-limit {
+  padding: 10px;
+  width: 100px;
+  margin-left: 10px;
+}
+
+.form-group {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+.form-group label {
+  width: 150px;
+  font-weight: bold;
+}
