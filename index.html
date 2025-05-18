@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Layout Container -->
+  <div class="app">
+
+    <!-- Top Navigation -->
+    <header class="app__header">
+      <div class="app__logo">🧠 QuizApp</div>
+      <nav class="app__nav">
+        <a href="admin.html" title="Admin Dashboard">
+          <i class="fa-solid fa-user" aria-hidden="true"></i>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Main App Body -->
+    <main class="app__main">
+      <!-- Screen: Start -->
+      <section class="screen screen--start active" data-screen="start">
+        <h1 class="screen__title">Welcome to the Tech Quiz</h1>
+        <div class="form-group">
+          <input type="text" id="username" placeholder="Enter your name" aria-label="Name" />
+        </div>
+        <div class="form-group">
+          <select id="category" aria-label="Category">
+            <option disabled selected>Select a Category</option>
+            <option value="javascript">JavaScript</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="react">React</option>
+            <option value="sql">SQL</option>
+          </select>
+        </div>
+        <button id="start-btn" class="btn">Start Quiz</button>
+      </section>
+
+      <!-- Screen: Quiz -->
+      <section class="screen screen--quiz hidden" data-screen="quiz">
+        <div class="quiz__info">
+          <span id="timer">⏱ 30s</span>
+          <span id="score">💯 Score: 0</span>
+        </div>
+
+        <div class="quiz__progress-bar">
+          <div id="progress" class="quiz__progress-fill"></div>
+        </div>
+
+        <div class="quiz__question-wrapper">
+          <h2 id="question" class="quiz__question"></h2>
+          <div id="options" class="quiz__options"></div>
+        </div>
+
+        <button id="next-btn" class="btn hidden">Next</button>
+      </section>
+
+      <!-- Screen: Result -->
+      <section class="screen screen--result hidden" data-screen="result">
+        <h1 class="screen__title">🎉 Quiz Complete!</h1>
+        <p id="final-score">You scored: </p>
+        <div id="high-scores" class="leaderboard"></div>
+        <button id="restart-btn" class="btn">Restart</button>
+        <p><a href="admin.html" class="admin-link">Go to Admin Panel</a></p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app__footer">
+      <p>&copy; 2025 Tech QuizApp • Built by Phetso 🧑🏽‍💻</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
