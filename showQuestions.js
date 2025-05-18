@@ -8,7 +8,6 @@ function showQuestion() {
   const question = questions[currentQuestion];
   questionElement.textContent = question.text;
 
-  // Shuffle options
   const shuffledOptions = shuffleArray([...question.options]);
 
   shuffledOptions.forEach((option) => {
