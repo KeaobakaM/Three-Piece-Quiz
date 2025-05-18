@@ -21,32 +21,6 @@ const categorySelect = document.getElementById("category");
 const finalScoreElement = document.getElementById("final-score");
 const highScoresElement = document.getElementById("high-scores");
 
-function loadQuestions(category) {
-  const savedQuestions =
-    JSON.parse(localStorage.getItem("quizQuestions")) || {};
-  return savedQuestions[category] || [];
-}
-
-// Move to next question
-nextBtn.addEventListener("click", nextQuestion);
-
-function nextQuestion() {
-  currentQuestion++;
-  showQuestion();
-}
-
-
-function showResult() {
-  quizScreen.classList.add("hidden");
-  resultScreen.classList.remove("hidden");
-  finalScoreElement.textContent = `${username}, your score is ${score} out of ${questions.length}`;
-
-
-  saveHighScore(username, score, questions.length);
-  displayHighScores();
-}
-
-
 function displayHighScores() {
   const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
   highScores.sort((a, b) => b.score - a.score);
