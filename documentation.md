@@ -8,4 +8,5 @@ This application is an interactive quiz platform focused on technology-related t
 ## Admin side:
 - Admin has the ability to add questions on a category and the related answer.
 - Admin has the ability to change number of questions for the quiz.
+- For Admin to change the limit of questions, they first have to select the category, set the limit and then got back to the quiz.
 

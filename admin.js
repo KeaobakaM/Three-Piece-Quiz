@@ -90,9 +90,9 @@ document.getElementById("question-limit").addEventListener("change", (e) => {
 });
 
 categorySelect.addEventListener("change", () => {
-  const limit = loadQuestionLimit(categorySelect.value);
-  document.getElementById("question-limit").value = limit;
+    const limit = loadQuestionLimit(categorySelect.value);
+    document.getElementById("question-limit").value = limit;
+    loadQuestionsForCategory();
 });
 
-categorySelect.addEventListener("change", loadQuestionsForCategory);
 loadQuestionsForCategory();

@@ -46,8 +46,8 @@ label {
 }
 
 .container {
-  max-width: 900px; /* Increased from 600px */
-  margin: 3rem auto;
+  max-width: 900px; 
+  margin: 10rem auto;
   padding: 2rem;
   background: #1e293b;
   border-radius: 12px;
@@ -165,4 +165,16 @@ button:hover {
 .form-group label {
   width: 150px;
   font-weight: bold;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgb(6, 150, 150);
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
