@@ -28,7 +28,7 @@ function loadQuestions(category) {
 }
 
 startBtn.addEventListener("click", () => {
-  username = usernameInput.value.trim() || "Anonymous"; 
+  username = usernameInput.value.trim() || "Anonymous";
   usernameInput.value = "";
   const category = categorySelect.value;
   const limits = JSON.parse(localStorage.getItem("questionLimits")) || {};
@@ -121,4 +121,20 @@ function selectAnswer(selectedOption, correctAnswer) {
 
   scoreElement.textContent = `Score: ${score}`;
   nextBtn.classList.remove("hidden");
+}
+
+nextBtn.addEventListener("click", nextQuestion);
+
+function nextQuestion() {
+  currentQuestion++;
+  showQuestion();
+}
+
+function showResult() {
+  quizScreen.classList.add("hidden");
+  resultScreen.classList.remove("hidden");
+  finalScoreElement.textContent = `${username}, your score is ${score} out of ${questions.length}`;
+
+  saveHighScore(username, score, questions.length);
+  displayHighScores();
 }
