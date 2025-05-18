@@ -26,3 +26,60 @@ function loadQuestions(category) {
     JSON.parse(localStorage.getItem("quizQuestions")) || {};
   return savedQuestions[category] || [];
 }
+
+startBtn.addEventListener("click", () => {
+  username = usernameInput.value.trim() || "Anonymous"; 
+  usernameInput.value = "";
+  const category = categorySelect.value;
+  const limits = JSON.parse(localStorage.getItem("questionLimits")) || {};
+  const questionLimit = limits[category] || 10;
+
+  questions = shuffleArray(loadQuestions(category)).slice(0, questionLimit);
+
+  if (questions.length === 0) {
+    alert("No questions available for this category. Please try another one.");
+    return;
+  }
+
+  startScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
+  showQuestion();
+});
+
+function showQuestion() {
+  resetState();
+  if (currentQuestion >= questions.length) {
+    showResult();
+    return;
+  }
+
+  const question = questions[currentQuestion];
+  questionElement.textContent = question.text;
+
+  const shuffledOptions = shuffleArray([...question.options]);
+
+  shuffledOptions.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.classList.add("option-btn");
+    button.addEventListener("click", () =>
+      selectAnswer(option, question.answer)
+    );
+    optionsElement.appendChild(button);
+  });
+
+  progressElement.style.width = `${
+    (currentQuestion / questions.length) * 100
+  }%`;
+
+  timeLeft = 30;
+  updateTimer();
+  timer = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      nextQuestion();
+    }
+  }, 1000);
+}
