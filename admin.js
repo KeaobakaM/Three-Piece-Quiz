@@ -88,3 +88,11 @@ document.getElementById("question-limit").addEventListener("change", (e) => {
   const category = document.getElementById("admin-category").value;
   saveQuestionLimit(category, parseInt(e.target.value));
 });
+
+categorySelect.addEventListener("change", () => {
+  const limit = loadQuestionLimit(categorySelect.value);
+  document.getElementById("question-limit").value = limit;
+});
+
+categorySelect.addEventListener("change", loadQuestionsForCategory);
+loadQuestionsForCategory();
