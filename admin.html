@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Quiz Content</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="admin-header">
+      <h1>📋 Quiz Content Manager</h1>
+      <nav>
+        <a href="index.html" class="nav-link">← Return to Quiz</a>
+      </nav>
+    </header>
+
+    <main class="admin-panel">
+      <section class="input-section">
+        <h2>Create a New Question</h2>
+        <form id="quiz-form">
+          <div class="input-block">
+            <label for="topic-select">Select Topic</label>
+            <select id="topic-select">
+              <option value="js">JavaScript</option>
+              <option value="html">HTML5</option>
+              <option value="css">CSS3</option>
+              <option value="react">ReactJS</option>
+              <option value="sql">SQL Basics</option>
+            </select>
+          </div>
+
+          <div class="input-block">
+            <label for="question-input">Question Text</label>
+            <textarea
+              id="question-input"
+              rows="2"
+              placeholder="Type the quiz question here..."
+            ></textarea>
+          </div>
+
+          <div class="input-block">
+            <label for="answers-input">Answer Choices</label>
+            <input
+              type="text"
+              id="answers-input"
+              placeholder="E.g., True, False"
+            />
+          </div>
+
+          <div class="input-block">
+            <label for="answer-index">Correct Answer Index</label>
+            <input type="number" id="answer-index" min="0" max="3" />
+          </div>
+
+          <div class="input-block">
+            <label for="limit-input">Max Questions Allowed</label>
+            <input type="number" id="limit-input" value="10" min="1" />
+          </div>
+
+          <button type="button" id="submit-question">Save Question</button>
+        </form>
+      </section>
+
+      <section class="question-display">
+        <h2>Stored Questions</h2>
+        <ul id="question-bank"></ul>
+      </section>
+    </main>
+
+    <footer class="admin-footer">
+      <p>&copy; 2025 QuizMaster Admin Dashboard</p>
+    </footer>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
