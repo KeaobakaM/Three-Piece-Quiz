@@ -174,3 +174,28 @@ function saveHighScore(name, score, total) {
 
   localStorage.setItem("highScores", JSON.stringify(sortedScores));
 }
+
+function displayHighScores() {
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  highScores.sort((a, b) => b.score - a.score);
+
+  if (highScores.length > 0) {
+    highScoresElement.innerHTML = "<h2>High Scores</h2>";
+    highScores.slice(0, 5).forEach((score, index) => {
+      highScoresElement.innerHTML += `
+              <p>${index + 1}. ${score.name}: ${score.score}/${score.total}</p>
+          `;
+    });
+  }
+}
+
+restartBtn.addEventListener("click", () => {
+  currentQuestion = 0;
+  score = 0;
+  resultScreen.classList.add("hidden");
+  startScreen.classList.remove("hidden");
+});
+
+function shuffleArray(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
